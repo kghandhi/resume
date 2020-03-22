@@ -1,121 +1,98 @@
 % LaTeX resume using res.cls
 \documentclass[9pt]{res} % default is 10 pt
-\usepackage{hyperref}
-%\usepackage{helvetica} % uses helvetica postscript font (download helvetica.sty)
-%\usepackage{newcent}   % uses new century schoolbook postscript font 
-\usepackage{latexsym}   % to get the \Box symbol
-\setlength{\textheight}{11in} % increase text height to fit resume on 1 page
-\topmargin=-0.5in % start text higher on the page
-\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
-\rightmargin=-0.25in
-\leftmargin=-0.2in
-%\topmargin=0.0001in
-\addtolength{\topmargin}{-.20in}
-\newcommand{\tab}[1]{\hspace{.1\textwidth}\rlap{#1}}
 
+\usepackage{hyperref}
 \usepackage{color}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{latexsym}   % to get the \Box symbol
+\usepackage{marginnote}
+\usepackage[top=1.5cm, bottom=1.5cm, outer=5cm, inner=2cm, heightrounded, marginparwidth=2.5cm, marginparsep=-15.5cm]{geometry}
+
+\topmargin=-0.5in % start text higher on the page
+\addtolength{\topmargin}{-.20in}
+%\rightmargin=-0.25in
+%\leftmargin=-0.2in
+
+\setlength{\textheight}{11in} % increase text height to fit resume on 1 page
+
+\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
+\newcommand{\tab}[1]{\hspace{.1\textwidth}\rlap{#1}}
 \newcommand{\FIXME}[1]{\colorbox{yellow}{#1}}
+
+%% Fonts
+\usepackage{inconsolata}
+\renewcommand*\familydefault{\ttdefault} %% Only if the base font of the document is to be typewriter style
+\usepackage[T1]{fontenc}
+%\renewcommand*\ttdefault{cmvtt}
+%\renewcommand*\familydefault{\ttdefault} %% Only if the base font of the document is to be typewriter style
+%\usepackage[T1]{fontenc}
 
 \makeatletter
 \def\@tablebox#1{\begin{tabular}[t]{@{}c@{\extracolsep{\fill}}}#1\end{tabular}}
 \makeatother
 
 \begin{document}
-\name{KIRA \ GHANDHI}
+
+\name{\huge\color{MidnightBlue}KIRA GHANDHI }
+
 \address{
-    5424 S. University Ave. 2S\\  
-    Chicago, IL 60615 \\  
-    (650)743-8198\\ 
-    kghandhi@uchicago.edu  $\bullet$ \url{https://github.com/kghandhi} \\
+    178 Church Street\\  
+    San Francisco, CA 94114 \\   
+    \href{mailto:kira.ghandhi@gmail.com}{kira.ghandhi@gmail.com}  $\bullet$ (650)743-8198 $\bullet$ \url{https://github.com/kghandhi} \\
 }
-\opening
 
 \begin{resume}                         
-\section{EDUCATION}  
-\textbf{The University of Chicago}, Chicago, Illinois \\
-\textbf{BS Mathematics, BS Computer Science}, Expected 2016 \\
-\textbf{GPA} 3.25/4.00 \\
-\textbf{Relevant Courses}: Honors Calculus, Accelerated Analysis, Honors Algebra, Networks and Distributed Systems, Computational Linguistics, Programming Languages, Advanced Distributed Systems, Discrete, Operating Systems, Algorithms, Functional Programming, Databases, Functional Systems in Haskell, Machine Learning, Security
+\marginnote{\section{EDUCATION}}[-0.5cm]  
+\textbf{\color{Maroon}The University of Chicago}, Chicago, Illinois \\
+\textbf{BS Mathematics, BS Computer Science}, 2016 \\
 \vspace{-4pt}
 
-\section{EXPERIENCE}
-\textit{Sprout Social}, Chicago, IL \\
-\textbf{Platform Engineer} (intern then part time) \hspace*{\fill} \textbf{June 2015 - present}
-\begin{itemize} 
-%\item Expanding and supporting the existing python REST API by collecting and aggregating data from Google+, Google Analytics, Twitter, Facebook, Instagram, and LinkedIn to develop reports about businesses' social media presence. This includes interfacing with three data stores (a relational database (mySQL), a noSQL database (Cassandra), and a distributed cluster (Hadoop)) and interacting with the data with MapReduce jobs\\
-%\item Researched, designed and implemented a report that collects historical data from a Twitter platform allowing users to track the popularity of search terms across Twitter. Prototyped, tested, and optimized the functionality of the implementation with threading and heavy caching in mySQL and Cassandra.  
-%\item Verifying existing data and the methods by which that data is collected
-%\item Expanding a new API endpoint that makes accessing pre-aggregated data easy for the front end
-\item Utilized MySQL, Cassandra and Hadoop to cache, aggregate, and analyze social networking data exposed via a python REST API.
-\item Built upon existing interfaces to and cross-validated data collected from Google+, Google Analytics, Twitter, Facebook, Instagram, and LinkedIn.
-\item Spearheaded the research, design, implementation, and testing of a new, concurrent interface to Twitter historical data that allows users to track the popularity of keywords over time.
-\item Built support for a new metric involving polling data from Instagram, storing it in HBase, and aggregating it with MapReduce to store it in Cassandra where it is accessible to the API.
+\marginnote{\section{EXPERIENCE}}[-0.5cm]
+\textit{\color{MidnightBlue}Braintree}, San Francisco, CA \\
+\textbf{Software Engineer}
+\hspace*{\fill} \textbf{August 2016 - Present}
+\begin{itemize}
+\item Integrated new payment methods including Apple Pay, Visa Checkout, and Masterpass into the core payments Ruby on Rails gateway.
+\item Extended Braintree's new GraphQL API that replaces existing language-specific SDKs.
+\item Spearheaded efforts to migrate legacy Ruby on Rails service (self-hosted) into a Java microservice running in AWS deployed multi-region using Kubernetes.
+\item Led design and execution of the 7th payment method Braintree offers, Samsung Pay, from initial brainstorming to release in 10 months. This included internal technical and product level discussions as well as external discussions with Samsung and interested merchants.
+\item Defined units of work from broad specifications accomplishing those goals utilizing pair programming, TDD, and other agile best practices.
+\item Built software to scale with of our large merchants such as Uber, Airbnb, and Jet.com including sharding in our Postgres database.
 \end{itemize}
 
-\textit{Mission Street Manufacturing}, Santa Barbara, CA \\
+\textit{\color{MidnightBlue}Sprout Social}, Chicago, IL \\
+\textbf{Platform Engineer} (intern then part time) \hspace*{\fill} \textbf{June 2015 - June 2016}
+\begin{itemize} 
+\item Utilized MySQL, Cassandra, and Hadoop to cache, aggregate, and analyze social networking data exposed via a python REST API.
+%\item Built upon existing interfaces to and cross-validated data collected from Google+, Google Analytics, Twitter, Facebook, Instagram, and LinkedIn.
+\item Spearheaded the research, design, implementation, and testing of a new, concurrent interface to Twitter historical data that allows users to track the popularity of keywords over time.
+\item Built support for a new metric involving polling data from Instagram, storing it in HBase, and aggregating it with MapReduce to store it in Cassandra where it is accessible to the API.
+\item Revamped a legacy Java system that worked with YARN to schedule Hadoop jobs to do a better job of reporting and notifying about jobs.
+\end{itemize}
+
+\textit{\color{MidnightBlue}Mission Street Manufacturing}, Santa Barbara, CA \\
 \textbf{Software Engineering Intern} \hspace*{\fill} \textbf{June 2014 - August 2014}
 \begin{itemize}
 \item Developed agile front- and back-end in a cross-functional team for critical user-facing feature that shipped with all 3D printers allowing users to replace printing filament
 \item Full stack engineer across iOS (Swift), web services (Python/Flask), and embedded hardware (Python running on a Raspberry Pi)
 \item Wrote unit, functional, and integration tests to cover both new and legacy code
-\item Documented the changes in design documents and diagrams
 \end{itemize}
 
-\textit{Department of Mathematics, University of Chicago}, Chicago, IL \\
-\textbf{VIGRE Course Assistant}   \hspace*{\fill} \textbf{October 2013 - June 2014}
-\begin{itemize} 
-\item Collected, graded, and promptly returned homework assignments for introductory calculus
-\item Assigned more than a dozen students of diverse skill levels in informal weekly office hours 
-\item Developed teaching and communication skills
-\end{itemize}
-
-\section{ACTIVITIES} 
+\vspace{-5pt}
+\marginnote{\section{WRIGING}}[-0.5cm] 
 \textbf{REU in Mathematics}, \textit{University of Chicago}, Chicago, IL \hspace{\fill} \textbf{Summer 2013}
-\begin{itemize}
-%\item Excelled in 8-week program in high-level mathematics. Topics included linear algebra, algebraic topology, geometry, logic, probability, and analysis 
-\item Wrote a paper entitled ``Khovanov Homology as an Invariant" with guidance from graduate students in mathematics and the professors of the courses (available at \url{http://math.uchicago.edu/~may/REU2013/REUPapers/Ghandhi.pdf})
+\begin{itemize} \itemsep -5pt
+\item Wrote a paper entitled $``$Khovanov Homology as an Invariant" with guidance from graduate students in mathematics and the professors of the courses (paper online at \url{https://bit.ly/2HRBgYc})
 \end{itemize}
+\textbf{Pay it Forward} Blog post on Braintree Medium blog. \url{https://bit.ly/2TuTNfk}
 
-\textbf{COSMOS Summer of Mathematics}, \textit{UC Davis}, Davis, CA \hspace{\fill} \textbf{Summer 2010}
-\begin{itemize}
-%\item Accepted to and excelled in an 8-week long summer program of college-level classes at UC Davis. Topics included combinatorics, topology (mostly knot theory), and symmetry
-\item Wrote a paper entitled ``Check Digits" based on individual research (available at \url{http://cosmos.ucdavis.edu/archives/2010/cluster6/Ghandi\_Kira.pdf}) 
-\end{itemize}
-\vspace{-5pt}
 
-\section{PROGRAMMING PROJECTS}
+\marginnote{\section{PROJECTS}}[-0.5cm]
 \begin{itemize} 
-\item ElmMan, an implementation of Pacman in the functional programming language Elm (compiled to JavaScript, HTML and CSS): \url{https://github.com/kghandhi/pacman}.
-\item Hetris, an implementation of Tetris in Haskell, with the functional reactive programming library Helm: \url{https://github.com/kghandhi/cmsc-22311/tree/master/Tetris}
-\item Projects in C: implemented a fully functional IRC server, mimicked TCP routing (chitcp), built a mini operating system (Pintos), and built a relational database management system accepting a subset of SQL (chidb)
+\item \url{kaelen.me}, a professional website for local Jazz musician Kaelen Ghandhi. 
+\item ElmMan, an implementation of Pacman in the functional programming language Elm (compiled to JavaScript, HTML and CSS): \url{https://bit.ly/2UP0Qkp}.
+\item Hetris, an implementation of Tetris in Haskell, with the functional reactive programming library Helm: \url{https://bit.ly/2FoNbtO}
+
 \end{itemize}
-
-%\section{SKILLS/STRENGTHS}
-%\begin{itemize} \itemsep -5pt
-%\item \textbf{Programming Languages} Advanced knowledge of C, Python, Standard ML, Swift, Racket, elm, \LaTeX
-%\item \textbf{Software} git, SVN, AWS, emacs
-%\item \textbf{Operating Systems} Familiar with Windows, Macintosh, Linux, and Unix 
-%%\item \textbf{General Skills} Knowledge of network programming,  TCP/IP protocols, socket programming, Amazon EC2, operating systems
-%%\item \textbf{Professional} Organized; logical; self-motivated; enthusiastic; detail-oriented; a problem solver; astute; clever; cooperative; communicative 
-%\end{itemize}
-\vspace{-5pt}
-
-%\section{ACADEMIC PROJECTS}
-%\begin{itemize} \itemsep -5pt
-%\item Worked with git and GitHub and svn to coordinate projects
-%\item Implemented an TCP/IP router that managed traffic over an AWS EC2 instance
-%\item Implemented the TCP protocol as in \href{http://tools.ietf.org/html/rfc793}{[RFC793]}
-%\item Implemented an IRC server as in \href{http://tools.ietf.org/html/rfc2813}{[RFC2813]}
-%\item Implemented a Hidden Markov Model in python
-%\end{itemize}
-
-
-%\section{LEADERSHIP}
-% \textbf{Team Captain}, \textit{Carlmont High School Track and Field} \hspace{\fill} \textbf{2012}
-%\begin{itemize}\itemsep -5pt
-%\item Led warm ups and cool downs
-%\item Aided the coach and filled in when needed
-%\item Learned how to manage and cooperate with large groups of often energetic people
-%\end{itemize}
 \end{resume}
 \end{document}
